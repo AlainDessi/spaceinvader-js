@@ -88,7 +88,7 @@ export class Game {
 
         }
 
-        this.shooter.setStartPosition((this.width / 2) + this.left, this.height - 56)
+        this.shooter.setStartPosition((this.width / 2), this.height - 56)
         this.aliens = []
         this.fires = []
 
@@ -99,7 +99,7 @@ export class Game {
                 if(row === 1) { type = 1}
                 if(row > 1) { type = 2}
                 if(row > 3) { type = 3}
-                this.aliens.push(new Alien(type, (line * 32) + this.left, row * 32 + 60, this.speedGame - this.level * 2 ))
+                this.aliens.push(new Alien(type, (line * 32), row * 32 + 60, this.speedGame - this.level * 2 ))
             }
         }
 
