@@ -70,7 +70,7 @@ export class Alien {
 
             if(this.anim === this.speedMove / 2) {
                 this.alienElement.src = 'imgs/aliens_' + this.type + '-1.png';
-                this.sounds[this.moveSound].play()
+                // this.sounds[this.moveSound].play()
                  this.moveSound++
                 if(this.moveSound > 3) {
                     this.moveSound = 0
