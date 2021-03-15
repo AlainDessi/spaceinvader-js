@@ -51,6 +51,9 @@ export class Game {
         this.speedGame = 42
         this.fireAlienChances = 4000
 
+        this.life = 4
+        this.lifeNumberElement = document.querySelector('#life-number')
+        this.lifeIcoElement = document.querySelector('#life-icon')
     }
 
     start() {
@@ -82,8 +85,12 @@ export class Game {
 
             setInterval(() => { this.update() }, 20);
 
+            // retire une vie
+            this.removeLife(1)
+
             // create shooter
             this.shooter  = new Shooter();
+
         } else {
 
         }
@@ -161,18 +168,7 @@ export class Game {
                 alien.posY >= this.shooter.posY &&
                 alien.posY <= (this.shooter.posY + 20)
             ) {
-                this.shooter.shooterElement.src = 'imgs/boom.png'
-                this.shooterBoomSound.play()
-                this.isGamePaused = true
-                this.aliens.forEach((alien, x) => {
-                    alien.remove()
-                });
-                this.fires.forEach((fire, x) => {
-                    fire.remove()
-                });
-                this.shooter.remove()
-                this.isGameStart = false
-                this.start()
+                this.gameover()
             }
 
             if(Math.floor(Math.random() * Math.floor(this.fireAlienChances)) === 1) {
@@ -234,6 +230,7 @@ export class Game {
                             this.fires.splice(i, 1)
                             this.shooter.shooterElement.src = 'imgs/shooter.png'
                             this.isGamePaused = false;
+                            this.removeLife(1)
                         }, 150)
                     }
                 }
@@ -257,5 +254,33 @@ export class Game {
 
     updateScore() {
         this.scoreFirst.innerHTML = this.score;
+    }
+
+    gameover() {
+        this.shooter.shooterElement.src = 'imgs/boom.png'
+        this.shooterBoomSound.play()
+        this.isGamePaused = true
+        this.aliens.forEach((alien, x) => {
+            alien.remove()
+        });
+        this.fires.forEach((fire, x) => {
+            fire.remove()
+        });
+        this.shooter.remove()
+        this.isGameStart = false
+        this.start()
+    }
+
+    removeLife(nbLife) {
+        this.life = this.life - nbLife;
+        if(this.life >= 0) {
+            this.lifeNumberElement.innerHTML = this.life;
+            var spanShooter = document.querySelector('#life-icon span')
+            this.lifeIcoElement.removeChild(spanShooter);
+            return false;
+        } else {
+            this.gameover();
+            return true;
+        }
     }
 }
