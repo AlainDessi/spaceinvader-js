@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>spaceinvaders</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/spaceinvaders.css">
+  </head>
+  <body>
+
+
+
+    <div class="game" id="space-game">
+
+      <div class="score-container">
+        <div class="score-content score-first">
+          score < 1 ><br>
+          <span>0000</span>
+        </div>
+        <div class="score-content score-high">
+          hi-score<br>
+          <span>0000</span>
+        </div>
+        <div class="score-content score-second">
+          score < 2 ><br>
+          <span>0000</span>
+        </div>
+      </div>
+
+      <div class="start-page page-1">
+          <p>
+            play<br>
+            space invaders<br>
+            *SCORE ADVANCE TABLE*<br>
+            <img src="imgs/aliens_1-1.png">&nbsp; = 30 points<br>
+            <img src="imgs/aliens_2-1.png">&nbsp; = 20 points<br>
+            <img src="imgs/aliens_1-1.png">&nbsp; = 10 points<br>
+            <br><span class="flash">** (space) to start game **</span>
+          </p>
+      </div>
+
+      <div class="start-page page-1">
+          <p>
+            play<br>
+            space invaders<br>
+            *SCORE ADVANCE TABLE*<br>
+            <img src="imgs/aliens_1-1.png">&nbsp; = 30 points<br>
+            <img src="imgs/aliens_2-1.png">&nbsp; = 20 points<br>
+            <img src="imgs/aliens_1-1.png">&nbsp; = 10 points<br>
+            <br><span class="flash">** (space) to start game **</span>
+          </p>
+      </div>
+
+      <div class="pause-page page-1">
+          <p>
+            pause<br>
+            space invaders<br>
+            *SCORE ADVANCE TABLE*<br>
+            <img src="imgs/aliens_1-1.png">&nbsp; = 30 points<br>
+            <img src="imgs/aliens_2-1.png">&nbsp; = 20 points<br>
+            <img src="imgs/aliens_1-1.png">&nbsp; = 10 points<br>
+            <br><span class="flash">** (p) to resume game **</span>
+          </p>
+      </div>
+      <div class="niveau-page">
+          <p>
+            Niveau 1<br>
+            Done<br>
+            <br><span class="flash">Niveau <span id="level"></span></span>
+          </p>
+      </div>
+
+      <div class="info">
+        <span class="life-number" id="life-number">4</span>
+        <span class="life-icon" id="life-icon">
+          <span><img src="imgs/shooter.png"></span>
+          <span><img src="imgs/shooter.png"></span>
+          <span><img src="imgs/shooter.png"></span>
+          <span><img src="imgs/shooter.png"></span>
+        </span>
+        <span class="life-credit">
+          credit <span id="credit">0</span>
+        </span>
+      </div>
+
+    </div>
+
+
+
+    <script type="module" src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>
